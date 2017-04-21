@@ -11,6 +11,7 @@ class ClientBase{
     protected $login;
     protected $version;
     protected $reportTable;
+    protected $clientTable;
     public function __construct(){
         $cfg = Config::clientBase();
         $this->key = $cfg["key"];
@@ -19,6 +20,7 @@ class ClientBase{
         $this->version = $cfg["version"];
         $this->reportTable = intval($cfg["reportTable"]);
         $this->auth();
+        $this->getTables();
     }
     public function auth(){
         $res = $this->call("auth","request",["login"=>$this->login]);
@@ -33,7 +35,7 @@ class ClientBase{
         else Log::debug($res);
         return $this->access_id;
     }
-    public function send($d){
+    public function create($d){
         $this->checkAuth();
         $res = $this->call("data","create",[
             "table_id"=>$this->reportTable,
@@ -41,6 +43,27 @@ class ClientBase{
             "data"=>[
                 "line" => $d
             ]
+        ]);
+        if(!$res["code"]==0)Log::debug($res);
+        return $res;
+    }
+    public function update($d){
+        $this->checkAuth();
+        $res = $this->call("data","update",[
+            "table_id"=>$this->reportTable,
+            "cals"=>false,
+            "data"=>[
+                "line" => $d
+            ],
+            "filter"=>[
+                "line" => [
+                    "vin"=>[
+                        "term"=> "=",
+                        "value"=> $d["vin"],
+                        "union"=> "AND"
+                    ]
+                ]
+            ],
         ]);
         if(!$res["code"]==0)Log::debug($res);
     }
@@ -74,22 +97,6 @@ class ClientBase{
             "start"=>0,
             "limit"=>1
         ]);
-        // $res = $this->call("data","read",[
-        //     "table_id"=>$this->reportTable,
-        //     "cals"=>false,
-        //     "fields" => ["row"=>[]],
-        //     "filter"=>[
-        //         "row"=>[
-        //             "f4660"=>[
-        //                 "term"=> "=",
-        //                 "value"=> $d["vin"],
-        //                 "union"=> "AND"
-        //             ]
-        //         ]
-        //     ],
-        //     "sort"=>["row"=>["id"=>"DESC"]],
-        //     "start"=>0,"limit"=>1
-        // ]);
         if($res["code"]==0)return $res["data"];
         else Log::debug($res);
         return [];
@@ -106,9 +113,16 @@ class ClientBase{
         return json_decode($res,true);
     }
     protected function checkAuth(){
-        if((time()-$this->accessTime)>5){
+        if((time()-$this->accessTime)>30){
             $this->access_id = false;
             $this->auth();
+        }
+    }
+    protected function getTables(){
+        $tables = $this->call("table","get_list");
+        foreach ($tables["data"] as $key => $value) {
+            if($value["name"] == "Заявки") $this->clientTable = intval($key);
+            else if($value["name"] == "Зпросы VIN") $this->reportTable = intval($key);
         }
     }
 };

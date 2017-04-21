@@ -28,6 +28,7 @@ class AntiCaptcha{
             "json"=>1
         ]);
         $response = json_decode($res,true);
+        if($response["request"] == "ERROR_IMAGE_TYPE_NOT_SUPPORTED") return false;
         $r = $this->check($response["request"]);
         $ended = round(microtime(true) * 1000);
         Log::debug("Got (in ".($ended - $started)." ms) catpcha ".$ret."\n");

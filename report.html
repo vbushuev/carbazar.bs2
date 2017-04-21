@@ -370,7 +370,15 @@
 					<div id="buyForm" class="buy-form">
 						<div class="buy-form-wrapper">
 							<h5 class="form-title">Купить полный отчёт</h5>
-							<form action="">
+							<form action="https://money.yandex.ru/eshop.xml" method="POST">
+								<input type="hidden" name="shopId" value="113311" />
+								<input type="hidden" name="scid" value="97661" />
+								<input type="hidden" name="sum" value="299" />
+								<input type="hidden" name="customerNumber" value="" />
+								<input type="hidden" name="cps_email" value="" />
+								<input type="hidden" name="cps_phone" value="" />
+							    <input type="hidden" name="shopSuccessURL" value="http://carbazar.bs2/fullreport.php" />
+							    <input type="hidden" name="shopFailURL" value="https://cars-bazar.ru/payment/yk_test/fail" />
 								<div class="form-group">
 									<input name="email" class="text-input" placeholder="Введите ваш E-Mail*" type="text" required>
 									<div class="input-group">
@@ -394,7 +402,8 @@
 										<span class="old-price">450</span>
 									</div>
 									<div class="payment-wrapper">
-										<input class="button open-modal" data-modal="#modal2" value="Перейти к оплате" type="submit">
+										<!-- <input class="button open-modal" data-modal="#modal2" value="Перейти к оплате" type="submit"> -->
+										<input class="button payment-button" value="Перейти к оплате" type="submit">
 										<div class="view-report">
 											<i class="icon icon-pdf dark"></i>
 											<a class="link open-modal" data-modal="#modal1" href="#">
@@ -482,5 +491,6 @@
 		<script src="vendor/jquery.inputmask.bundle.min.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/parser.js"></script>
+		<script src="js/kassa.js"></script>
 	</body>
 </html>

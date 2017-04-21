@@ -48,6 +48,7 @@ class Log{
             $file = $trace[1]['file'];
             $line = $trace[1]['line'];
         }
+        if($class!='')self::$LogName = preg_replace("/\\\/im",".",$class);
         if ($file != '') $file = basename($file);
         $c = date("H:i:s")." File:".$file ;
         $c .= " Line:".$line;
