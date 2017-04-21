@@ -31,36 +31,3 @@ if(typeof(qp.vin)!="undefined"){
         }
     });
 }
-var getLastVins = function(l){
-    $.ajax({
-        url:"/vin_base.php?l="+l,
-        dataType:"json",
-        success:function(d,x,s){
-            console.debug(d);
-            var date = new Date(),
-                type = [
-                    '<span class="check-category purchased">куплен полный отчёт для</span>',
-                    '<span class="check-category">проверен автомобиль</span>',
-                    '<span class="check-category">проверен автомобиль</span>'
-                ];
-            //$(".recent-numbers-list").html();
-            for(var i in d){
-                vin = d[i],
-                    s = '<li class="recent-number"><div class="check-info">';
-                s+='<span class="check-time">'+date.getHours()+':'+date.getMinutes()+'</span>';
-                s+= type[(Math.random()*10)%type.length];
-                s+='</div><div class="check-number"><div class="check-icon"><i class="icon icon-car"></i></div>';
-                s+='<a class="link" href="#">'+vin+'</a></div></li>';
-                $(".recent-numbers-list li").last().remove()
-                $(".recent-numbers-list li").append(s);
-            }
-        }
-    });
-}
-$(document).ready(function(){
-    getLastVins(20);
-    setInterval(function(){
-        console.debug("Load vinbase");
-        getLastVins(8);
-    },1000);
-});
