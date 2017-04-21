@@ -4,7 +4,7 @@ Number.prototype.pad2=function(){
 };
 var getLastVins = function(l){
     $.ajax({
-        url:"/vin_base.php?l="+l,
+        url:"vin_base.php?l="+l,
         dataType:"json",
         success:function(d,x,s){
             var date = new Date(),
