@@ -19,7 +19,7 @@ var getLastVins = function(l){
                 s+='<span class="check-time">'+date.getHours().pad2()+':'+date.getMinutes().pad2()+'</span>';
                 s+= type[(Math.round(Math.random()*10)%type.length)];
                 s+='</div><div class="check-number"><div class="check-icon"><i class="icon icon-car"></i></div>';
-                s+='<a class="link" href="#">'+vin+'</a></div></li>';
+                s+='<a class="link" href="report.html?vin='+vin+'">'+vin+'</a></div></li>';
                 $(".recent-numbers-list:eq("+(leftcol?"0":"1")+") li:eq(8)").remove();
                 $(".recent-numbers-list:eq("+(leftcol?"0":"1")+")").prepend(s);
                 leftcol=!leftcol;

@@ -102,14 +102,18 @@ class ClientBase{
         return [];
     }
     public function call($mod,$met,$data=[]){
-        $http = new Http(["json"=>true]);
         $res = [];
-        $http->headers = ["Accept"=>"application/json, text/javascript, */*; q=0.01"];
-
-        if($this->access_id!==false)$data["access_id"] = $this->access_id;
-        else $data["v"] = $this->version;
-        $res = $http->fetch($this->host."/{$mod}/{$met}/","POST",$data);
-        $http->close();
+        try{
+            $http = new Http(["json"=>true]);
+            $http->headers = ["Accept"=>"application/json, text/javascript, */*; q=0.01"];
+            if($this->access_id!==false)$data["access_id"] = $this->access_id;
+            else $data["v"] = $this->version;
+            $res = $http->fetch($this->host."/{$mod}/{$met}/","POST",$data);
+            $http->close();
+        }
+        catch(\Exception $e){
+            Log::debug($e);
+        }
         return json_decode($res,true);
     }
     protected function checkAuth(){
