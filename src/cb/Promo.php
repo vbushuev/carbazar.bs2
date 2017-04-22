@@ -41,6 +41,22 @@ class Promo{
         }
         return $res;
     }
+    public function generate($c,$n,$a){
+        $def = [
+            "used"=> false,
+            "discount"=> $a,
+            "type"=> "once"
+        ];
+        ;
+        $val = '';
+        for($i=0;$i<$c;$i++){
+            $val .= chr( rand( 65, 90 ) );
+            $promo = $n.strtoupper(substr(sha1($val),rand(0,33),5));
+            $this->codes[$promo] = $def;
+            echo $promo."\n";
+        }
+        file_put_contents("store/promo.json",json_encode($c,JSON_PRETTY_PRINT));
+    }
     protected function loadCodes(){
         $this->codes = json_decode(file_get_contents("store/promo.json"),true);
     }
