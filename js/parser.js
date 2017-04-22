@@ -16,8 +16,7 @@ if(typeof(qp.vin)!="undefined"){
 
         },
         success:function(d){
-            console.debug(d);
-            if(typeof(d.history)=="undefined")return;
+            if(typeof(d.history)=="undefined" || d.history==null)return;
             if(typeof(d.history.RequestResult)=="undefined")return;
             if(typeof(d.history.RequestResult.vehicle)=="undefined")return;
             if(typeof(d.history.RequestResult.vehicle.model)=="undefined")return;
