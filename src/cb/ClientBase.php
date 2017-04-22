@@ -20,7 +20,7 @@ class ClientBase{
         $this->version = $cfg["version"];
         $this->reportTable = intval($cfg["reportTable"]);
         $this->auth();
-        $this->getTables();
+        //$this->getTables();
     }
     public function auth(){
         $res = $this->call("auth","request",["login"=>$this->login]);

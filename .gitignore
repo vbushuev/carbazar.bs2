@@ -4,3 +4,5 @@ cookie-jar
 *.log
 store
 logs
+
+store/captcha.jpg
