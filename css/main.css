@@ -87,7 +87,7 @@ textarea {
 	font-family: "Myriad Pro Regular", sans-serif;
 	border: none;
 	box-shadow: none;
-	outline: none;	
+	outline: none;
 	vertical-align: middle;
 	-webkit-transition: .2s;
 	transition: .2s;
@@ -103,7 +103,7 @@ label {
 
 
 .container {
-	min-width: 320px;	
+	min-width: 320px;
 	max-width: 1170px;
 	margin: 0 auto;
 }
@@ -127,7 +127,7 @@ label {
 .icon-hamburger:before {
 	width: 28px;
 	height: 20px;
-	background-position: -546px -6px;	
+	background-position: -546px -6px;
 }
 
 .icon-close:before {
@@ -219,13 +219,13 @@ label {
 .icon-taxi:before {
 	width: 53px;
 	height: 46px;
-	background-position: -406px -217px;	
+	background-position: -406px -217px;
 }
 
 .icon-interdict:before {
 	width: 49px;
 	height: 49px;
-	background-position: -504px -216px;	
+	background-position: -504px -216px;
 }
 
 .icon-car:before {
@@ -305,7 +305,7 @@ a.button {
 .button.search {
 	font-size: 18px;
 	background: #ecd223 url(../img/search_icon.png) 10px center no-repeat;
-	padding: 10px 12px 10px 40px;	
+	padding: 10px 12px 10px 40px;
 }
 
 .button.print,
@@ -389,9 +389,9 @@ a.button {
 }
 
 .section-block .spoiler-button {
-	display: inline-block;	
-	opacity: .3;	
-	-webkit-transition: .2s;	
+	display: inline-block;
+	opacity: .3;
+	-webkit-transition: .2s;
 	transition: .2s;
 	cursor: pointer;
 }
@@ -443,8 +443,8 @@ a.button {
 
 .menu-button {
 	float: right;
-	display: none;	
-	-webkit-transition: .2s;	
+	display: none;
+	-webkit-transition: .2s;
 	transition: .2s;
 	cursor: pointer;
 }
@@ -455,7 +455,7 @@ a.button {
 
 .site-nav-menu-item {
 	display: inline-block;
-	font-size: 17px;	
+	font-size: 17px;
 	margin-left: 20px;
 }
 
@@ -533,7 +533,7 @@ a.button {
 	display: block;
 	color: #fff;
 	border: none;
-	padding: 10px 15px;	
+	padding: 10px 15px;
 }
 
 .site-nav-menu-item.dropdown .dropdown-menu-item a:hover {
@@ -600,7 +600,7 @@ a.button {
 li.check-category {
 	display: inline-block;
 	text-align: center;
-	opacity: .48;	
+	opacity: .48;
 	margin-left: 50px;
 }
 
@@ -633,7 +633,7 @@ li.check-category:first-child {
 }
 
 .fact-info {
-	width: 310px;	
+	width: 310px;
 }
 
 .fact-percent {
@@ -650,7 +650,7 @@ li.check-category:first-child {
 	height: 100%;
 	background-color: #e3e6ed;
 	top: 0;
-	z-index: -1;	
+	z-index: -1;
 }
 
 .fact-text {
@@ -715,7 +715,7 @@ li.check-category:first-child {
 	width: 35px;
 	height: 25px;
 	background: url(../img/tooltip_arrow_left.png) no-repeat;
-	top: -25px;	
+	top: -25px;
 	left: 18px;
 }
 
@@ -778,7 +778,7 @@ li.check-category:first-child {
 
 .facts-list.left .fact-description {
 	float: left;
-	margin-left: 5px;	
+	margin-left: 5px;
 }
 
 .facts-list.right .fact {
@@ -823,7 +823,7 @@ li.check-category:first-child {
 
 .facts-list.right .fact-description {
 	float: right;
-	margin-right: 5px;	
+	margin-right: 5px;
 }
 
 .report-info {
@@ -843,7 +843,7 @@ li.check-category:first-child {
 	position: relative;
 	font-size: 20px;
 	color: #666;
-	text-align: left;	
+	text-align: left;
 	margin-bottom: 18px;
 }
 
@@ -896,6 +896,8 @@ li.check-category:first-child {
 .check-info {
 	display: inline-block;
 	padding: 9.5px 0;
+    width: 12em;
+    overflow: visible;
 }
 
 .check-time {
@@ -914,6 +916,7 @@ span.check-category.purchased {
 
 .check-number {
 	float: right;
+    min-width: 14em;
 }
 
 .check-icon {
@@ -932,7 +935,7 @@ span.check-category.purchased {
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%,-50%);
-	        transform: translate(-50%,-50%);	
+	        transform: translate(-50%,-50%);
 }
 
 .recent-number .link {
@@ -1038,7 +1041,7 @@ span.check-category.purchased {
 	display: none;
 	position: fixed;
 	width: 100%;
-	min-width: 320px;	
+	min-width: 320px;
 	height: 100%;
 	overflow-y: scroll;
 	top: 0;
@@ -1061,7 +1064,7 @@ span.check-category.purchased {
 .modal-window-wrapper {
 	position: absolute;
 	width: 75%;
-	max-width: 840px;	
+	max-width: 840px;
 	top: 40px;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
@@ -1084,7 +1087,7 @@ span.check-category.purchased {
 
 .modal-window-content {
 	background-color: #fff;
-	color: #474747;	
+	color: #474747;
 	text-align: center;
 }
 
@@ -1136,7 +1139,7 @@ span.check-category.purchased {
 .vin-report-data {
 	font-size: 0;
 	text-align: left;
-	padding: 15px 30px;	
+	padding: 15px 30px;
 }
 
 .vin-report-data:nth-child(odd) {
@@ -1367,7 +1370,7 @@ span.vin-report-data-hint {
 	}
 }
 
-@media screen and (max-width: 1150px) { 
+@media screen and (max-width: 1150px) {
 	.recent-number {
 		padding-left: 20px;
 		padding-right: 20px;
@@ -1386,7 +1389,7 @@ span.vin-report-data-hint {
 	}
 }
 
-@media screen and (max-width: 960px) { 
+@media screen and (max-width: 960px) {
 	body > section:not(.check) {
 		padding: 20px 0;
 	}
@@ -1430,13 +1433,13 @@ span.vin-report-data-hint {
 		display: block;
 		color: #fff;
 		border: none;
-		padding: 10px 15px;	
+		padding: 10px 15px;
 	}
 
 	.site-nav-menu-item a:hover {
 		background-color: #10785a;
 	}
-	
+
 	.site-nav-menu-item.dropdown .dropdown-menu {
 		width: 100%;
 		top: 0;
@@ -1477,19 +1480,19 @@ span.vin-report-data-hint {
 	}
 
 	.facts .facts-list .fact {
-		text-align: center;		
+		text-align: center;
 		margin: 0 auto 40px;
 	}
 
 	.facts .facts-list .fact-icon {
 		float: left;
 		display: none;
-	}	
+	}
 
 	.facts .facts-list .fact-info {
 		float: none;
 		display: inline-block;
-	}		
+	}
 
 	.facts .facts-list .fact-percent {
 		padding: 0;
@@ -1518,9 +1521,9 @@ span.vin-report-data-hint {
 
 	.fact-tooltip:before {
 		background: url(../img/tooltip_arrow_right.png) no-repeat;
-		left: auto;		
+		left: auto;
 		right: 18px;
-	}	
+	}
 
 	.report-info-list {
 		display: block;
@@ -1579,7 +1582,7 @@ span.vin-report-data-hint {
 	.payment-wrapper {
 		text-align: center;
 		margin-top: 10px;
-	}	
+	}
 
 	.check-categories {
 		text-align: center;
@@ -1601,10 +1604,10 @@ span.vin-report-data-hint {
 
 	.vin-report-data span .button {
 		margin-left: 20px;
-	}	
+	}
 }
 
-@media screen and (max-width: 800px) { 
+@media screen and (max-width: 800px) {
 	.about .section-block {
 		float: none;
 		width: 100%;
@@ -1621,7 +1624,7 @@ span.vin-report-data-hint {
 
 	.modal-window-title {
 		font-size: 18px;
-	}	
+	}
 
 	.modal-window-container {
 		padding-left: 20px;
@@ -1635,7 +1638,7 @@ span.vin-report-data-hint {
 	.vin-report-data span {
 		width: 100%;
 		text-align: center;
-	}	
+	}
 
 	.vin-report-data span .button {
 		float: none;
@@ -1647,13 +1650,13 @@ span.vin-report-data-hint {
 		width: 75%;
 	}
 
-	.contact-form input, 
+	.contact-form input,
 	.contact-form textarea {
 		width: 300px;
 	}
 }
 
-@media screen and (max-width: 640px) { 
+@media screen and (max-width: 640px) {
 	.check-form input {
 		width: 100%;
 	}
@@ -1686,7 +1689,7 @@ span.vin-report-data-hint {
 	}
 }
 
-@media screen and (max-width: 480px) { 
+@media screen and (max-width: 480px) {
 	.button {
 		padding-left: 15px;
 		padding-right: 15px;
@@ -1711,9 +1714,9 @@ span.vin-report-data-hint {
 	}
 
 	.fact-tooltip:before {
-		left: 118px;		
+		left: 118px;
 		right: auto;
-	}		
+	}
 
 	.recent-number {
 		text-align: center;
@@ -1741,7 +1744,7 @@ span.vin-report-data-hint {
 	}
 }
 
-@media screen and (max-width: 360px) { 
+@media screen and (max-width: 360px) {
 	.section-blocks-wrapper {
 		border: none;
 	}

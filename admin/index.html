@@ -272,7 +272,7 @@
 					<input name="vin" class="text-input" placeholder="X7MDC14BM90004876" type="text" maxlength="17" required>
 					<input class="button search" value="Проверить" type="submit">
 				</form>
-				<div class="vin-report">
+				<div class="vin-report" style="display:none;">
 					<h5 class="report-data-category">Общие сведения об автомобиле</h5>
 					<ul class="vin-report-list">
 						<li class="vin-report-data">
@@ -425,6 +425,9 @@
 			}
 		}
 		$(document).ready(function(){
+			$(".print").on("click",function(e){
+				window.print();
+			});
 			if(typeof(qp.vin)!="undefined"){
 				var timerId = 0;
 				$.ajax({
