@@ -45,5 +45,87 @@
         "regnum": null,
         "message": "ver.3.1",
         "status": 200
-    }
+    },
+    "dtp": {
+        "RequestResult": {
+            "errorDescription": "",
+            "statusCode": 1,
+            "Accidents": []
+        },
+        "vin": "NLAFD75308W072210",
+        "status": 200
+    },
+    "wanted": {
+        "RequestResult": {
+            "records": [],
+            "count": 0,
+            "error": 0
+        },
+        "vin": "NLAFD75308W072210",
+        "status": 200
+    },
+    "restrict": {
+        "RequestResult": {
+            "records": [],
+            "count": 0,
+            "error": 0
+        },
+        "vin": "NLAFD75308W072210",
+        "status": 200
+    },
+    "rca": {
+        "bodyNumber": "",
+        "chassisNumber": "",
+        "licensePlate": "",
+        "vin": "NLAFD75308W072210",
+        "policyResponseUIItems": [
+            {
+                "insCompanyName": "РЕСО-Гарантия",
+                "policyBsoNumber": "0385473973",
+                "policyBsoSerial": "ЕЕЕ",
+                "policyIsRestrict": "1",
+                "policyUnqId": "258815520"
+            }
+        ],
+        "policyUnqId": null,
+        "errorMessage": null,
+        "errorId": 0,
+        "warningMessage": null,
+        "validCaptcha": true
+    },
+    "zalog": {
+        "list": [
+            {
+                "index": 1,
+                "registerDate": "05.10.2015",
+                "referenceNumber": "2015-000-953173-757",
+                "properties": [
+                    {
+                        "prefix": "VIN",
+                        "value": "NLAFD75308W072210"
+                    }
+                ],
+                "pledgors": [
+                    {
+                        "type": "person",
+                        "name": "Комаров Борис Константинович",
+                        "birth": "02.04.1992"
+                    }
+                ],
+                "pledgees": [
+                    {
+                        "type": "org",
+                        "name": "Банк СОЮЗ(акционерное общество)"
+                    }
+                ],
+                "position": 0,
+                "notificationDataUrl": "\/search\/notificationData?pos=0&uuid="
+            }
+        ],
+        "totalPages": 1,
+        "currentPage": 1,
+        "location": "\/ruzdi\/api\/v1\/PledgeRegistry\/search\/99e24047-815b-42aa-9d17-c18e8628db7b"
+    },
+    "carprice": [],
+    "osago": []
 }
