@@ -896,8 +896,6 @@ li.check-category:first-child {
 .check-info {
 	display: inline-block;
 	padding: 9.5px 0;
-    width: 12em;
-    overflow: visible;
 }
 
 .check-time {
