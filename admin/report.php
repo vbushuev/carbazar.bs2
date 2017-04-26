@@ -9,6 +9,7 @@ $data = $rq;
 $rca = new cb\parse\Rca();
 $zalog = new cb\parse\Zalog();
 $gibdd = new cb\parse\Gibdd();
+$cp = new cb\parse\Carprice();
 $cb = new cb\ClientBase();
 $current = $cb->get($rq);
 $result = ["status"=>"unknown"];
@@ -23,9 +24,9 @@ if(count($current)){
 else $cb->create($rq);
 if($type == "full"){
     if(file_exists("store/".$rq["vin"].".json")){
-        echo file_get_contents("store/".$rq["vin"].".json"); exit;
+        $result = json_decode(file_get_contents("store/".$rq["vin"].".json"),true);
     }
-    if($type == $data["type"] && $data["status"] == "full" && $data["report"]!="null" &&!is_null($data["report"])){
+    else if($type == $data["type"] && $data["status"] == "full" && $data["report"]!="null" &&!is_null($data["report"])){
         echo json_encode($data,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
         $result = array_merge(["status"=>"ok"],json_decode($data["report"],true));
     }
@@ -38,11 +39,24 @@ if($type == "full"){
             "restrict"=> json_decode($gibdd->restrict($rq),true),
             "rca"=>json_decode($rca->get($rq),true),
             "zalog"=>json_decode($zalog->get($rq),true),
-            "carprice"=>[],
-            "osago"=>[]
+
         ];
         $data["status"] = "full";
-
+    }
+    if(isset($result["history"]["RequestResult"]["vehicle"])){
+        $mm = preg_split("/\s/",$result["history"]["RequestResult"]["vehicle"]["model"]);
+        $model = $mm[count($mm)-1];
+        unset($mm[count($mm)-1]);
+        $mark = join($mm," ");
+        $year = $result["history"]["RequestResult"]["vehicle"]["year"];
+        $cpdata = [
+            "mark"=>$mark,
+            "model"=>$model,
+            "year"=>$result["history"]["RequestResult"]["vehicle"]["year"]
+        ];
+        //print_r($cpdata);exit;
+        $result["carprice"]=json_decode($cp->get($cpdata),true);
+        $result["osago"]=[];
     }
 }else {
     if($type == $data["type"] && $data["status"] == "first"){

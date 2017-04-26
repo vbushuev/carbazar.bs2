@@ -7,7 +7,7 @@ class Log{
     public static function debug(){
         $out = "DEBUG\t".self::get_caller_info();
         foreach(func_get_args() as $s){
-            if(is_array($s)||is_object($s)) $s = json_encode($s,JSON_PRETTY_PRINT);
+            if(is_array($s)||is_object($s)) $s = json_encode($s,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
             $out.="\t".$s."\n";
         }
         $out.="\n";

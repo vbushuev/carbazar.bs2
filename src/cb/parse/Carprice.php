@@ -5,29 +5,46 @@ use core\HTTPConnector as Http;
 //use cb\AntiCaptcha as Captcha;
 
 class Carprice{
-    public function get($d){
-        $http = new Http();
-        $html = $http->fetch("https://www.reestr-zalogov.ru/search/index");
-        $uuid = 'b6fa0009-2777-461c-94b1-7482368990dc';
-        //<input type="hidden" id="uuid" name="uuid" value="b6fa0009-2777-461c-94b1-7482368990dc">
-        if(preg_match("/id=\"uuid\"\s+name=\"uuid\"\s+value=\"([^\"]+)\"/im",$html,$m)){
-            $uuid = $m[1];
-            //echo "FOUND UUID:".$uuid;
+    protected $encodes = [];
+    public function __construct(){
+        if(file_exists("store/cp.encodes.json")){
+            $this->encodes = json_decode(file_get_contents("store/cp.encodes.json"),true);
         }
-        $d["captcha"] = $http->fetch("https://www.reestr-zalogov.ru/captcha/generateCaptcha?".$this->random());
-        file_put_contents("store/zalog_captcha.jpg",$d["captcha"]);
-        // solve captcha
+    }
+    public function get($d=[]){
+        $http = new Http();
+        $brands = json_decode($http->fetch("https://evaluate-api.carprice.ru/evaluate-form/brands?type_id=0"),true);
+        $d["mark"] = $this->encodeMark($d["mark"]);
+        $d["model"] = mb_strtolower(preg_replace(["/С/m","/А/m"],["C","A"],$d["model"]));
+        foreach($brands["data"] as $brand){
+            if(mb_strtolower($brand["text"])==$d["mark"]){
+                $d["brand_id"] = $brand["value"];
+                break;
+            }
+        }
 
-        $word = $captcha->get($d);
-        // checkdata http://check.gibdd.ru/proxy/check/auto/history
-        $res = $http->fetch("https://www.carprice.ru/local/components/linemedia.carsale/evaluate.main/ajax/ajax.php?action=get-price","GET",[
-            "action"=>"get-price"
+        $models = json_decode($http->fetch("https://evaluate-api.carprice.ru/evaluate-form/models?brand_id=".$d["brand_id"]."&year=".$d["year"]),true);
+
+        foreach($models["data"] as $model){
+            if(preg_match("/".preg_quote($d["model"])."/imu",mb_strtolower($model["text"]))){
+                $d["model_id"] = $model["value"];
+                break;
+            }
+        }
+        $res = $http->fetch("https://www.carprice.ru/local/components/linemedia.carsale/evaluate.main/ajax/ajax.php","GET",[
+            'action' => 'set-user-data',
+            'type_tech_id' => '0',
+            'brand_id' => $d["brand_id"],
+            'year' => $d["year"],
+            'model_id' => $d["model_id"],
+            'email' => 'yanusdnd@inbox.ru',
+            'terms' => 'Y'
         ]);
         $http->close();
         return $res;
     }
-    protected function random(){
-        return round(microtime(true) * 1000)."";
+    protected function encodeMark($m){
+        return mb_strtolower(isset($this->encodes[$m])?$this->encodes[$m]:$m);
     }
 };
 ?>

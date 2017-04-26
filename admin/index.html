@@ -516,7 +516,12 @@
 								{title:"Примерная стоимость ОСАГО на 1 год",code:"osago-price",value:'10570 рублей<a class="button" href="http://cars-bazar.ru/uslugi/osago/" target="_blank">Купить ОСАГО</a>'}
 							]);
 							container.append('<h5 class="report-data-category" style="background-color:#19b689;">Рыночная стоимость по Carprice</h5>');
-							putData(container,[{title:"Примерная стоимость",value:"от 525 000 руб. до 713 000 руб."}]);
+							var cp = "от 525 000 руб. до 713 000 руб.";
+							if(typeof(d.carprice)!="undefined" && d.carprice!=null){
+								val = "от "+d.carprice.car_price_from+" до "+d.carprice.car_price;
+							}
+							putData(container,[{title:"Примерная стоимость",value:val}]);
+
 							container.append('<h5 class="report-data-category">Пробег автомобиля</h5>');
 							putData(container,[
 								{title:"Значение",value:"Данные не зафиксированы",code:"data-value"}
