@@ -430,7 +430,7 @@
 			}
 		}
 		$(document).ready(function(){
-			
+
 			if(typeof(qp.vin)!="undefined"){
 				var timerId = 0;
 				$.ajax({
@@ -574,9 +574,7 @@
 							container.append('<h5 class="report-data-category">Информация о нахождении в залоге у банков</h5>');
 							var zal = [{title:'Данный автомобиль не числится в залоге'}];
 							if(d.zalog!=null){
-
-								if(d.zalog.status != "200")zal = [{title:'Нет данных о залоге данного автомобиля'}];
-								else {
+								if(typeof(d.zalog.list)!="undefined"){
 									zal = [];
 									for(var i in d.zalog.list){
 										var zl = d.zalog.list[i],props = [],debitors =[],creditors=[];
@@ -591,6 +589,7 @@
 										zal.push({title:"Залогодатель",value:creditors.join(', ')});
 									}
 								}
+								else zal = [{title:'Нет данных о залоге данного автомобиля'}];
 
 							}
 							putData(container,zal);
