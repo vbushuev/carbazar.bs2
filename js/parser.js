@@ -90,18 +90,12 @@ $(document).ready(function(){
                 }
                 catch(e){
                     console.debug(e);
+                    $(".request-status").html(
+                        '<span class="modal-window-text">Ваш отчёт по VIN коду - '+qp.vin+' не сформировалася.</span>'
+                        +'<button class="button" onclick="document.location.reload();">Повторить попытку</button>'
+
+                    )
                 }
-                // if(typeof(d.history)=="undefined" || d.history==null)return;
-                // if(typeof(d.history.RequestResult)=="undefined")return;
-                // if(typeof(d.history.RequestResult.vehicle)=="undefined")return;
-                // if(typeof(d.history.RequestResult.vehicle.model)=="undefined")return;
-                //
-                // $(".vechile-model").html(d.history.RequestResult.vehicle.model);
-                // $(".vechile-vin").html(d.history.RequestResult.vehicle.vin);
-                // $(".vechile-year").html(d.history.RequestResult.vehicle.year);
-                // $(".vechile-color").html(d.history.RequestResult.vehicle.color);
-                // $(".vechile-power").html(parseFloat(d.history.RequestResult.vehicle.powerHp).toFixed(0)+" л.с.");
-                // $(".vechile-volume").html(parseFloat(d.history.RequestResult.vehicle.engineVolume).toFixed(0)+" куб. см.");
             },
             complete:function(){
                 clearInterval(timerId);

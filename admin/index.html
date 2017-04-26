@@ -443,26 +443,6 @@
 						doc.save(qp.vin+'.pdf');
 	  				}
 				});
-
-				// Promise.all([
-    			// 	new Promise(function (resolve){
-        		// 		var temp = document.createElement("div");
-				// 		temp.setAttribute("id","temp");
-        		// 		temp.innerHTML= $('.vin-full-report-container').html();
-        		// 		//need to render element, otherwise it won't be displayed
-        		// 		document.body.appendChild(temp);
-				// 		html2canvas($("#temp"), {
-        		// 			onrendered: function(canvas) {
-				// 				$("#temp").remove();
-            	// 				resolve(canvas.toDataURL('image/png'));
-        		// 			}
-        		// 		});
-    			// 	})
-				// ]).then(function (ru_text) {
-    			// 	doc.addImage(ru_text[0], 'JPEG', 0,0);
-    			// 	doc.text(0, 10, 'Non-utf-8-string' );
-				// 	doc.save(qp.vin+'.pdf');
-    			// });
 			});
 			if(typeof(qp.vin)!="undefined"){
 				var timerId = 0;
@@ -623,12 +603,17 @@
 						}
 						catch(e){
 							console.debug(e);
+							$(".request-status").html(
+								'<span class="modal-window-text">Ваш отчёт по VIN коду - '+qp.vin+' не сформировалася.</span>'
+								+'<button class="button" onclick="document.location.reload();">Повторить попытку</button>'
+
+							)
 						}
 
 					},
 					complete:function(){
 						clearInterval(timerId);
-						$(".request-status").html("");
+						//$(".request-status").html("");
 					}
 				});
 			}
