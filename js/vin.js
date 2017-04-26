@@ -489,6 +489,7 @@ var wmiList = {
     "TF" : "Швейцария",
     "TG" : "Швейцария",
     "TH" : "Швейцария",
+    "TI" : "Чехия",
     "TK" : "Чехия",
     "TL" : "Чехия",
     "TM" : "Чехия",
@@ -503,6 +504,7 @@ var wmiList = {
     "TY" : "Португалия",
     "TZ" : "Португалия",
     "T1" : "Португалия",
+    "UF" : "Дания",
     "UI" : "Дания",
     "UJ" : "Дания",
     "UK" : "Дания",
@@ -527,6 +529,7 @@ var wmiList = {
     "VC" : "Австрия",
     "VD" : "Австрия",
     "VE" : "Австрия",
+    "VF" : "Франция",
     "VG" : "Франция",
     "VH" : "Франция",
     "VI" : "Франция",
@@ -681,3 +684,25 @@ var getCountry=function(){
     console.debug(wmi,wmiList[wmi]);
     return wmiList[wmi];
 };
+var getCategory = function(){
+    if(!arguments.length)return "-";
+    switch(arguments[0]){
+        case "А": return "Мотоциклы";
+        case "А1": return "Легкие мотоциклы";
+        case "В": return "Легковые автомобили, небольшие грузовики (до 3,5 тонн)";
+        case "ВE": return "Легковые автомобили с прицепом";
+        case "В1": return "Трициклы";
+        case "С": return "Грузовые автомобили (от 3,5 тонн)";
+        case "СE": return "Грузовые автомобили с прицепом";
+        case "С1": return "Средние грузовики (от 3,5 до 7,5 тонн)";
+        case "С1E": return "Средние грузовики с прицепом";
+        case "D": return "Автобусы";
+        case "DE": return "Автобусы с прицепом";
+        case "D1": return "Небольшие автобусы";
+        case "D1E": return "Небольшие автобусы с прицепом";
+        case "М": return "Мопеды";
+        case "Tm": return "Трамваи";
+        case "Tb": return "Троллейбусы";
+    }
+    return "-";
+}

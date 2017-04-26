@@ -3,6 +3,7 @@ cookie-jar
 
 *.log
 store/
+store/*
 logs
 
 store/captcha.jpg
