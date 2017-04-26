@@ -430,20 +430,7 @@
 			}
 		}
 		$(document).ready(function(){
-			$(".print").on("click",function(e){
-				$(".modal-window").scrollTop(0);
-				window.print();
-			});
-			$(".pdf").on("click",function(e){
-				var doc = new jsPDF();
-				var img = html2canvas($('.vin-full-report-container'),{
-					onrendered: function(img) {
-						console.debug(img);
-						doc.addImage(img, 'JPEG', 0,0);
-						doc.save(qp.vin+'.pdf');
-	  				}
-				});
-			});
+			
 			if(typeof(qp.vin)!="undefined"){
 				var timerId = 0;
 				$.ajax({

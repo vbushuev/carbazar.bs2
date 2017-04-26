@@ -132,4 +132,26 @@ $(document).ready(function() {
             }
         });
     });
+	$(".print").on("click",function(e){
+		$(".modal-window").scrollTop(0);
+		window.print();
+	});
+	$(".pdf").on("click",function(e){
+
+		$(".modal-window").css("position","relative").css("overflow-y","visible").css("display","block");
+
+		html2canvas($(".vin-full-report-container"),{
+			onrendered: function(img) {
+				var doc = new jsPDF({
+					unit: 'px',
+ 					format: [img.width, img.height]
+				});
+				console.debug(img,$(".vin-full-report-container").width(),$(".vin-full-report-container").height());
+				//window.location.href = img.toDataURL('image/png');
+				doc.addImage(img.toDataURL('image/png'), 'PNG', 0,0,img.width,img.height);
+				doc.save(qp.vin+'.pdf');
+			}
+		});
+		$(".modal-window").css("position","fixed").css("overflow-y","scroll");
+	});
 });

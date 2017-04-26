@@ -1770,6 +1770,7 @@ span.vin-report-data-hint {
     .modal-window {
         position: relative;
         display: block;
+        overflow-y:visible;
     }
     .modal-window-wrapper {
         position: relative;
