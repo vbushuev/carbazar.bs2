@@ -12,6 +12,9 @@ $cb = new cb\ClientBase();
 $current = $cb->get($rq);
 $result = ["status"=>"unknown"];
 $resultJson = "{}";
+if(file_exists("store/".$rq["vin"].".json")){
+    echo file_get_contents("store/".$rq["vin"].".json"); exit;
+}
 // проверка на существование записи
 if(count($current)){
     foreach($current as $row){
@@ -42,8 +45,9 @@ if($type == "full"){
         }
     }
 }else {
-    if($type == $data["type"] && $data["status"] == "first"){
-        $result = array_merge(["status"=>"ok"],json_decode($data["report"],true));
+    $dataReport = json_decode($data["report"],true);
+    if($type == $data["type"] && $data["status"] == "first" && isset($dataReport["history"]) && isset($dataReport["history"]["status"]) && $dataReport["history"]["status"]=="200"){
+        $result = array_merge(["status"=>"ok"],$dataReport);
     }
     else {
         $result = ["history"=> json_decode($gibdd->history($rq),true)];
@@ -53,6 +57,6 @@ if($type == "full"){
 $resultJson = json_encode($result,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 $data["report"]=$resultJson;
 $cb->update($data);
-file_put_contents("store/".$rq["vin"].".json",$resultJson);
+if($data["status"]=="full")file_put_contents("store/".$rq["vin"].".json",$resultJson);
 echo $resultJson;
 ?>

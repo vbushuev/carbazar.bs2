@@ -14,6 +14,8 @@
 				<div class="close-button">
 					<i class="icon icon-close"></i>
 				</div>
+				<a class="link open-modal" data-modal="#modal2" id="waitreport" href="#"  style="display:none;">Формируем отчет</a>
+				<a class="link open-modal" data-modal="#modal3" id="successpayment" href="#"  style="display:none;">Оплата успешна</a>
 				<div id="modal1" class="modal-window-full-report">
 					<div class="modal-window-content">
 						<div class="vin-full-report">
@@ -198,8 +200,8 @@
 				<div id="modal2" class="modal-window-notification">
 					<div class="modal-window-content">
 						<div class="payment-notification">
-							<h3 class="modal-window-title">Оплата прошла успешно</h3>
-							<div class="modal-window-container">
+							<h3 class="modal-window-title request-status-title">Оплата прошла успешно</h3>
+							<div class="modal-window-container request-status">
 								<span class="modal-window-text">Ваш отчёт по VIN коду - Z8NBBUJ32BS024566 подготавливается.</span>
 								<span class="modal-window-text">Пожалуйста подождите, обычно это занимает не более 45 секунд.</span>
 							</div>
@@ -285,6 +287,10 @@
 				<div class="vin-report">
 					<a class="button" href="#buyForm">Рекомендуем получить полный отчёт</a>
 					<h5 class="report-data-category">Общие сведения об автомобиле</h5>
+				</div>
+				<div class="vin-report-2" style="display:none;">
+					<a class="button" href="#buyForm">Рекомендуем получить полный отчёт</a>
+					<h5 class="report-data-category">Общие сведения об автомобиле</h5>
 					<ul class="vin-report-list">
 						<li class="vin-report-data">
 							<span class="vin-report-data-title">Модель</span>
@@ -367,6 +373,8 @@
 							<span class="vin-report-data-value hidden">Доступно в полном отчёте</span>
 						</li>
 					</ul>
+				</div>
+				<div>
 					<div id="buyForm" class="buy-form">
 						<div class="buy-form-wrapper">
 							<h5 class="form-title">Купить полный отчёт</h5>

@@ -914,7 +914,7 @@ span.check-category.purchased {
 
 .check-number {
 	float: right;
-    min-width: 14em;
+    min-width: 12em;
 }
 
 .check-icon {
@@ -943,6 +943,7 @@ span.check-category.purchased {
 	border: none;
 	text-transform: uppercase;
 	vertical-align: middle;
+    width:1em;
 }
 
 .recent-number .link:hover {
@@ -1761,4 +1762,30 @@ span.vin-report-data-hint {
 		border: none;
 		margin: 0;
 	}
+}
+@media print {
+    .buttons-wrapper,.header,.footer,.secondary-section,.check {
+        display: none;
+    }
+    .modal-window {
+        position: relative;
+        display: block;
+    }
+    .modal-window-wrapper {
+        position: relative;
+        display: block;
+        width:100%;
+        height:100%;
+        top:0;
+    }
+    .vin-report-data{
+        padding:5px 10px;
+    }
+    .vin-report-data-title{
+        font-size: 12pt;
+    }
+    .vin-report-data-value{
+        font-size: 12pt;
+    }
+    a[href^=http]:after {content: " " attr(href)};
 }
