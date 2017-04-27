@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 chdir("..");
+ob_start();
 include("autoload.php");
 $vin = isset($_REQUEST["vin"])?$_REQUEST["vin"]:"WF0RXXGCDR8R45807";
 $type = isset($_REQUEST["type"])?$_REQUEST["type"]:"small";
@@ -71,5 +72,6 @@ $resultJson = json_encode($result,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 $data["report"]=$resultJson;
 if($data["status"]=="full")file_put_contents("store/".$rq["vin"].".json",$resultJson);
 $cb->update($data);
+ob_end_clean();
 echo $resultJson;
 ?>
