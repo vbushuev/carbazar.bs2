@@ -1,0 +1,46 @@
+{
+    "status": "ok",
+    "history": {
+        "status": 403,
+        "message": "Access denied!"
+    },
+    "dtp": {
+        "status": 403,
+        "message": "Access denied!"
+    },
+    "wanted": {
+        "status": 403,
+        "message": "Access denied!"
+    },
+    "restrict": {
+        "status": 403,
+        "message": "Access denied!"
+    },
+    "rca": {
+        "bodyNumber": "",
+        "chassisNumber": "",
+        "licensePlate": "",
+        "vin": "X9FPXXEEDP8L82501",
+        "policyResponseUIItems": [
+            {
+                "insCompanyName": "РОСГОССТРАХ",
+                "policyBsoNumber": "0901051155",
+                "policyBsoSerial": "ЕЕЕ",
+                "policyIsRestrict": "0",
+                "policyUnqId": "269616122"
+            }
+        ],
+        "policyUnqId": null,
+        "errorMessage": null,
+        "errorId": 0,
+        "warningMessage": null,
+        "validCaptcha": true
+    },
+    "zalog": {
+        "timestamp": 1493315642885,
+        "status": 403,
+        "error": "Forbidden",
+        "message": "No message available",
+        "path": "\/search\/endpoint"
+    }
+}

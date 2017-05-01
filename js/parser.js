@@ -39,6 +39,8 @@ $(document).ready(function(){
             },
             success:function(d){
                 try{
+                    var order = (typeof(d.order)=="undefined")?{id:1}:d.order;
+                    $("name=cb_order_id").val(order.id);
                     putData($(".vin-report"),[
                         {
                             title:"Модель",

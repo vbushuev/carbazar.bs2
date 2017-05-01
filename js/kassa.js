@@ -4,7 +4,8 @@ var getYandexKassaForm = function(){
         phone = $("#buyForm [name=phone]").val(),
         amount = $("#buyForm .report-price .price").text(),//.attr("data-base"),
         promo = $("#buyForm [name=promo]").val();
-    $("#buyForm [name=sum]").val(amount);
+    //$("#buyForm [name=sum]").val(amount);
+    $("#buyForm [name=sum]").val("1");
     $("#buyForm [name=customerNumber]").val('cb_'+email);
     $("#buyForm [name=cps_email]").val(email);
     $("#buyForm [name=cps_phone]").val(phone);
